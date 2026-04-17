@@ -5,10 +5,15 @@ ZOMAKARB AI Solutions is an AI-powered onboarding and matchmaking platform.
 It is designed to seamlessly connect Micro and Small Enterprises (MSEs) with the most suitable partner networks (SNPs) on the Open Network for Digital Commerce (ONDC).
 
 THE PROBLEM
-The current process of integrating MSEs onto the ONDC platform under the TEAM initiative is highly inefficient.It relies on manual data entry, inconsistent product cataloguing, and labour-intensive NSIC verifications.These inefficiencies cause severe delays and application rejections.Complex forms, language barriers, and inefficient SNP mapping cause massive friction for MSEs joining ONDC.
+The current process of integrating MSEs onto the ONDC platform under the TEAM initiative is highly inefficient.
+It relies on manual data entry, inconsistent product cataloguing, and labour-intensive NSIC verifications.
+These inefficiencies cause severe delays and application rejections.
+Complex forms, language barriers, and inefficient SNP mapping cause massive friction for MSEs joining ONDC.
 
 THE SOLUTION
-ZOMAKARB provides a zero-learning-curve, multilingual voice agent.Voice-First Input: MSEs just talk to the app, and it auto-fills forms using Bhashini ASR/TTS.Automated Standardization: It moves from static web forms to a dynamic, conversational UI that automatically standardizes unstructured speech into an ONDC-compliant taxonomy.
+ZOMAKARB provides a zero-learning-curve, multilingual voice agent.
+Voice-First Input: MSEs just talk to the app, and it auto-fills forms using Bhashini ASR/TTS.
+Automated Standardization: It moves from static web forms to a dynamic, conversational UI that automatically standardizes unstructured speech into an ONDC-compliant taxonomy.
 
 TECHNOLOGY STACK
 Frontend: React.
