@@ -1,43 +1,178 @@
-# ONDC_IndiaAI_Innovation_challenge_2026_OPEN
+# 🚀 ONDC MSE Agent
 
-ZOMAKARB AI SOLUTIONS: ONDC MSE AGENT MAPPING TOOL PROJECT OVERVIEW
-ZOMAKARB AI Solutions is an AI-powered onboarding and matchmaking platform. 
-It is designed to seamlessly connect Micro and Small Enterprises (MSEs) with the most suitable partner networks (SNPs) on the Open Network for Digital Commerce (ONDC).
+### AI-Powered Voice-First Multilingual Onboarding for Indian Micro & Small Enterprises (MSEs)
 
-THE PROBLEM
-The current process of integrating MSEs onto the ONDC platform under the TEAM initiative is highly inefficient.
-It relies on manual data entry, inconsistent product cataloguing, and labour-intensive NSIC verifications.
-These inefficiencies cause severe delays and application rejections.
-Complex forms, language barriers, and inefficient SNP mapping cause massive friction for MSEs joining ONDC.
+[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Ollama](https://img.shields.io/badge/Ollama-AI-white?style=for-the-badge&logo=ollama)](https://ollama.com/)
 
-THE SOLUTION
-ZOMAKARB provides a zero-learning-curve, multilingual voice agent.
-Voice-First Input: MSEs just talk to the app, and it auto-fills forms using Bhashini ASR/TTS.
-Automated Standardization: It moves from static web forms to a dynamic, conversational UI that automatically standardizes unstructured speech into an ONDC-compliant taxonomy.
+---
 
-TECHNOLOGY STACK
-Frontend: React.
-Backend: FastAPI.Voice & Translation: Bhashini.Edge AI & Reasoning: Ollama for local AI reasoning, using models like mxbai-embed-large:latest, llava:vision language, and qwen2.5-instruct.Database & Vector Store: ChromaDB for embeddings and Retrieval-Augmented Generation (RAG).
+## 🌟 Overview
 
-CORE FEATURES
-Multilingual UI: A language drop down translates the UI of the whole platform.
-Voice Assistance: Bhashini Text to Speech gives support by listening to the user for every question and giving hints.
-ONDC AskBot: A smart chatbot powered by the Ollama model that has the context of the real time dashboard details to help in every step of form filling.
-Smart Error Handling: Detects mismatches, such as a name mismatch between the ID Proof and introduction, prompting the user to select the correct name.
-Partner Mapping: The Ollama model maps the best possible logistics and tech partners based on a pre-defined point system. 
-For example, an exact ONDC category code match is +50 points.
+The **ONDC MSE Agent** is a state-of-the-art onboarding system designed to bridge the digital divide for Micro and Small Enterprises (MSEs) in India. By leveraging cutting-edge AI, it allows merchants to join the [Open Network for Digital Commerce (ONDC)](https://ondc.org/) using their **native language** through a voice-first interface.
 
-RESPONSIBLE AI & DATA SECURITY
-Privacy: Processing reasoning locally via Ollama ensures sensitive business data isn't exposed to public APIs.
-Inclusivity: Bhashini integration ensures non-English speaking, rural, or low-literacy MSEs have equal access to digital commerce.
-Compliance: Adheres to the DPDP Act and Guidelines for Indian Government Websites (GIGW) by minimizing data retention and securing the FastAPI backend.
+### The Problem
+Digitizing a product catalog and finding the right Seller Network Participant (SNP) can be daunting for small merchants due to:
+- **Language Barriers**: Complexity of complex digital forms in non-native languages.
+- **Technical Friction**: Manual data entry for product catalogs.
+- **Discovery Issues**: Identifying which SNP best suits their specific product category and location.
 
-PRODUCT ROADMAP
-Phase 1: Deploy the React/FastAPI stack with Bhashini integration and SQLite/JSON databases for initial ONDC pilots.
-Phase 2: Scale up to ChromaDB for nationwide RAG-based matching and shift to PostgreSQL.
-Phase 3: System Integration with National Small Industries Corporation (NSIC) APIs for automated claim verification.
+### The Solution
+A multi-modal AI agent that:
+1. **Listens** to the merchant's description in their native language (11+ Indic languages).
+2. **Sees** and analyzes product images to extract features automatically.
+3. **Generates** ONDC-compliant catalog schemas.
+4. **Matches** the merchant with the most compatible SNPs using semantic search.
 
-TEAM & LINKS
-Co-Founders: Avani Sehgal, Agam Dayal, Aryaman Sharma, Rajani Kant Jha.
-Live Demo: https://zomakarb.vercel.app/.
-Contact: zomakarb@gmail.com.
+---
+
+## ✨ Key Features
+
+### 🎤 Multilingual Voice Onboarding
+- Powered by **Bhashini API**.
+- Supports 11+ Indian languages including Hindi, Tamil, Telugu, Bengali, Marathi, and more.
+- Real-time ASR (Automatic Speech Recognition) and NMT (Neural Machine Translation).
+
+### 📷 AI Product Cataloging
+- **Vision Model (LLaVA)**: Analyzes product images to detect categories, ingredients, and attributes.
+- **Intelligent Extraction**: Extracts product names and details from spoken introductions and ID proofs.
+
+### 🔍 Intelligent SNP Matching
+- **Semantic Re-ranking**: Uses **Qwen 2.5** and vector embeddings to match MSEs with SNPs based on category, city, and technical capabilities.
+- **Multi-Pass Filtering**: Combines deterministic logic with AI-driven reasoning to provide the best partner pools (Seller NPs, Logistics, and TSPs).
+
+### 📝 ONDC-Compliant Generation
+- Automatically generates structured JSON catalogs that adhere to ONDC protocols.
+- Minimizes manual errors and speeds up the "Go-to-Market" time for small businesses.
+
+---
+
+## 🏗️ Architecture
+
+```mermaid
+graph TD
+    A[MSE Merchant] -->|Voice/Image| B(React Frontend)
+    B -->|Audio/Base64| C[FastAPI Backend]
+    
+    subgraph "AI Services Layer"
+        C -->|ASR/NMT| D[Bhashini API]
+        C -->|Vision/Catalog| E[Ollama - LLaVA]
+        C -->|LLM/Logic| F[Ollama - Qwen 2.5]
+    end
+    
+    subgraph "Data Layer"
+        C -->|SNP Registry| G[(PostgreSQL)]
+        C -->|Generated Catalogs| H[(MongoDB)]
+    end
+    
+    C -->|Response| B
+    B -->|UI Feedback| A
+```
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React 18, Vite, CSS Modules, Glassmorphic UI.
+- **Backend**: FastAPI (Python 3.10+), SQLAlchemy (Async), Pydantic v2.
+- **Databases**: PostgreSQL (Relational data), MongoDB (Unstructured catalogs).
+- **AI Infrastructure**:
+  - **Ollama**: Local LLM hosting.
+  - **Bhashini**: Government of India's AI for Indic languages.
+- **DevOps**: Ngrok (for local tunneling), Docker (optional).
+
+---
+
+## 🚀 Installation & Setup
+
+### Prerequisites
+- Python 3.10+
+- Node.js 18+
+- PostgreSQL & MongoDB
+- [Ollama](https://ollama.com/) (for local AI functionality)
+
+### 1. Initialize AI Models (Ollama)
+Pull the required models to your local machine:
+```bash
+ollama pull qwen2.5:7b-instruct
+ollama pull llava:7b
+ollama pull mxbai-embed-large
+```
+
+### 2. Backend Setup
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # venv\Scripts\activate on Windows
+pip install -r requirements.txt
+cp .env.example .env  # Configure your keys here
+```
+
+### 3. Database Initialization
+Seed the SNP (Seller Network Participant) registry:
+```bash
+python ../database/seed_snp_data.py
+# For advanced ETL
+python ../database/etl_snp_registry.py
+```
+
+### 4. Frontend Setup
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+## 🔧 Configuration (.env)
+
+Edit `backend/.env` with your credentials:
+
+```env
+# Database
+POSTGRES_URL=postgresql+asyncpg://user:pass@localhost:5432/ondc_mse
+MONGODB_URL=mongodb://localhost:27017
+MONGODB_DB=ondc_catalog
+
+# Bhashini API
+BHASHINI_API_KEY=your_key
+BHASHINI_USER_ID=your_id
+BHASHINI_ULCA_API_KEY=your_ulca_key
+
+# Ollama
+OLLAMA_BASE_URL=http://localhost:11434
+```
+
+---
+
+## 📚 API Reference
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/process-voice` | POST | ASR + Translation for Indic languages |
+| `/api/analyze-product` | POST | AI product analysis (Vision + Text) |
+| `/api/match-snps-json` | POST | Integrated multi-pass partner matching |
+| `/api/complete-onboarding` | POST | End-to-end workflow execution |
+| `/api/extract-name` | POST | Extracts name from ID image or voice |
+| `/health` | GET | Check system health |
+
+---
+
+## 🎨 UI Aesthetics
+
+The application features a **"Modern Deep-Tech"** aesthetic:
+- **Glassmorphism**: Frosted glass cards and overlays.
+- **Interactive Feedback**: Real-time waveform visualization during voice recording.
+- **Micro-animations**: Smooth transitions and AI "scanning" indicators.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+Built with ❤️ for the ONDC Ecosystem | 2026
